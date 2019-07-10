@@ -1,0 +1,22 @@
+dataBase = {
+    "setOne": {
+        "question":"What kind of quiz is this?",
+        "responses":[
+            {"id":1,"response":"A good quiz"},
+            {"id":2,"response":"A bad quiz"},
+            {"id":3,"response":"A decent quiz"},
+        ],
+        "answer":[2],
+    },
+    "setTwo": {
+        "question":"How much fun are you having?",
+        "responses":[
+            {"id":1,"response":"Not a lot of fun unfortunately"},
+            {"id":2,"response":"Sort of fun, I think"},
+            {"id":3,"response":"Pretty fun! I'm enjoying myself"},
+            {"id":4,"response":"Lot of fun! Very exciting"},
+            {"id":5,"response":"I am beyond ecstatic, I can't hold my bowels"},
+        ],
+        "answer":[3],
+    },
+}
