@@ -1,15 +1,13 @@
-dataBase = {
-    "null":{},
-    "setOne": {
-        "question":"What kind of quiz is this?",
+dataBase = [
+    {   "question":"What kind of quiz is this?",
         "responses":[
-            {"id":1,"response":"A good quiz", "answerMsg":"Sounds good, then!"},
-            {"id":2,"response":"A bad quiz", "answerMsg":"Oh! That's disappointing :("},
-            {"id":3,"response":"A decent quiz", "answerMsg":"Sounds a little boring...."},
+            {"response":"A good quiz", "answerMsg":"Sounds good, then!"},
+            {"response":"A bad quiz", "answerMsg":"Oh! That's disappointing :("},
+            {"response":"A decent quiz", "answerMsg":"Sounds a little boring...."},
         ],
         "answer":[2],
     },
-    "setTwo": {
+    {
         "question":"How much fun are you having?",
         "responses":[
             {"id":1,"response":"Not a lot of fun unfortunately"},
@@ -20,4 +18,5 @@ dataBase = {
         ],
         "answer":[3],
     },
-}
+
+]

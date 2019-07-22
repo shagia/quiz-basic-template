@@ -1,8 +1,8 @@
 //init variables
-const data = questions
+const data = dataBase
 const dataEntries = Object.entries(data)
 const dataLength = Object.keys(data).length
-let currentPage = 1
+let currentPage = 2
 const responseNode = document.getElementById('responseBox');
 
 for (let i = 0; i < Object.keys(data).length; i++) {
