@@ -44,7 +44,8 @@ function makeResponse(id, response, question) {
 
     inputNode.type = 'radio'
     inputNode.name = "Quiz"
-    inputNode.dataset.id = id
+    inputNode.value = id
+    //inputNode.dataset.id = id
     quizQuestion.innerHTML = question
 
     divNode.appendChild(inputNode)
