@@ -15,7 +15,7 @@ const quizQuestion = coreApp.childNodes[3]
 let currentPage = 0
 
 
-/* Checks the currentPage variable in comparison to dataLength => loops through currentPage's objects => passes objects to the makeResponse function and binds the submit button to getRadio => Renders title, radios and text for each respective array */
+/* Checks the currentPage variable in comparison to dataLength => loops through currentPage's objects => passes objects to the makeResponse function and binds the submit button to getRadioAnswer => Renders title, radios and text for each respective array */
 
 function init() {
 
@@ -28,7 +28,7 @@ function init() {
 
         }
         submit.addEventListener("click", function() {
-            getRadio();
+            getRadioAnswer();
         })
     } else if (currentPage == dataLength) {
         console.log("Finished")
@@ -59,7 +59,9 @@ function makeResponse(id, response, question) {
     quizBox.appendChild(inputCombo)
 }
 
-function getRadio() {
+
+
+function getRadioAnswer() {
 
     // ToDo: Get radio buttons directly from quizBox instead of running through the entire document
     const radios = document.getElementsByName('Quiz')
@@ -70,6 +72,13 @@ function getRadio() {
             console.log("Radio is checked....")
             if (radios[r].value == dataEntries[currentPage][1].answer){
                 console.log("..and the answer is true!")
+
+                while (quizBox.firstChild) {
+    quizBox.removeChild(quizBox.firstChild);
+    }
+
+                currentPage++
+                init()
             }
 
             //console.log(radios[r].type)
@@ -84,6 +93,3 @@ function makeAnswer(id, ){
 
 
 init()
-
-
-console.log(coreApp.childNodes)
