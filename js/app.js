@@ -4,24 +4,14 @@ Knowing how loops work'll come in handy.*/
 
 //init variables
 const coreApp = document.getElementById('app');
-
 const data = dataBase
 const dataEntries = Object.entries(data)
 const dataLength = Object.keys(data).length
-
 // These two constraints gets the DOM elements of where the responses are rendered, and where the question is rendered.
 // '5' is where the responses are, '3' is where the question is.
-const quizBoxEle = document.getElementById('quizBox');
 const quizBox = coreApp.childNodes[5]
 const quizQuestion = coreApp.childNodes[3]
-
 let currentPage = 0
-
-//const quizBox = document.getElementById('quizBox');
-
-for (let i = 0; i < Object.keys(data).length; i++) {
-    console.log(i);
-}
 
 function checkDataSet() {
 
@@ -37,6 +27,15 @@ function checkDataSet() {
     } else if (currentPage == dataLength) {
     	console.log("Finished")
     }
+
+}
+
+function getRadio(){
+
+// ToDo: Get radio buttons directly from quizBox instead of running through the entire document
+const radios = document.getElementsByName('Quiz');
+
+
 
 }
 
@@ -61,15 +60,6 @@ function makeResponse(id, response, question) {
     inputCombo.appendChild(inputNode)
     inputCombo.appendChild(textNode)
     quizBox.appendChild(inputCombo)
-}
-
-function getRadio(){
-
-// ToDo: Get radio buttons directly from quizBox instead of running through the entire document
-const radios = document.getElementsByName('Quiz');
-
-
-
 }
 
 
