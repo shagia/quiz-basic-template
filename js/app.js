@@ -3,7 +3,8 @@ But if so, I'm writing comments regarding what it's doing to the dataSheet to ma
 Knowing how loops work'll come in handy.*/
 
 //init variables
-const coreApp = document.getElementById('app');
+const coreApp = document.getElementById('app')
+const submit = document.getElementById('submitA')
 const data = dataBase
 const dataEntries = Object.entries(data)
 const dataLength = Object.keys(data).length
@@ -13,29 +14,24 @@ const quizBox = coreApp.childNodes[5]
 const quizQuestion = coreApp.childNodes[3]
 let currentPage = 0
 
+
+/* Checks the currentPage variable in comparison to dataLength => loops through currentPage's objects => passes objects to the makeResponse function => Renders title, radios and text for each respective array and gets the current radios rendered onto the DOM */
+
 function checkDataSet() {
 
     if (currentPage != dataLength) {
 
         for (let j = 0; j < dataEntries[currentPage][1].responses.length; j++) {
-            console.log(dataEntries[currentPage][1].responses[j].response)
+            //console.log(dataEntries[currentPage][1].responses[j].response);
+
             makeResponse([j], dataEntries[currentPage][1].responses[j].response, dataEntries[currentPage][1].question)
         }
-
-        
-
+        submit.addEventListener("click", function() {
+            getRadio();
+        })
     } else if (currentPage == dataLength) {
-    	console.log("Finished")
+        console.log("Finished")
     }
-
-}
-
-function getRadio(){
-
-// ToDo: Get radio buttons directly from quizBox instead of running through the entire document
-const radios = document.getElementsByName('Quiz');
-
-
 
 }
 
@@ -60,6 +56,14 @@ function makeResponse(id, response, question) {
     inputCombo.appendChild(inputNode)
     inputCombo.appendChild(textNode)
     quizBox.appendChild(inputCombo)
+}
+
+function getRadio() {
+
+    // ToDo: Get radio buttons directly from quizBox instead of running through the entire document
+    const radios = document.getElementsByName('Quiz')
+    console.log("test")
+
 }
 
 
