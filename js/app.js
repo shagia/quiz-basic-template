@@ -15,9 +15,9 @@ const quizQuestion = coreApp.childNodes[3]
 let currentPage = 0
 
 
-/* Checks the currentPage variable in comparison to dataLength => loops through currentPage's objects => passes objects to the makeResponse function => Renders title, radios and text for each respective array and gets the current radios rendered onto the DOM */
+/* Checks the currentPage variable in comparison to dataLength => loops through currentPage's objects => passes objects to the makeResponse function and binds the submit button to getRadio => Renders title, radios and text for each respective array */
 
-function checkDataSet() {
+function init() {
 
     if (currentPage != dataLength) {
 
@@ -25,6 +25,7 @@ function checkDataSet() {
             //console.log(dataEntries[currentPage][1].responses[j].response);
 
             makeResponse([j], dataEntries[currentPage][1].responses[j].response, dataEntries[currentPage][1].question)
+
         }
         submit.addEventListener("click", function() {
             getRadio();
@@ -62,16 +63,27 @@ function getRadio() {
 
     // ToDo: Get radio buttons directly from quizBox instead of running through the entire document
     const radios = document.getElementsByName('Quiz')
-    console.log("test")
+    
+    for (let r = 0; r < radios.length; r++){
+        // If it finds a checked radio box, it should find if it's true in the database
+        if (radios[r].checked) {
+            console.log("Radio is checked....")
+            if (radios[r].value == dataEntries[currentPage][1].answer){
+                console.log("..and the answer is true!")
+            }
+
+            //console.log(radios[r].type)
+        }
+    }
+}
+
+// Should 
+function makeAnswer(id, ){
 
 }
 
 
-checkDataSet()
-
-function init() {
-
-}
+init()
 
 
 console.log(coreApp.childNodes)
