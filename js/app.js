@@ -7,8 +7,11 @@ const data = dataBase
 // bind to DOM elements
 const coreApp = document.getElementById('app')
 const questionContainer = coreApp.childNodes[1]
+const answerContainer = coreApp.childNodes[3]
+const answerResponse = document.getElementById('ansResponse')
 const submit = document.getElementById('submitA')
 const continueQ = document.getElementById('continue')
+
 //convert objects
 const dataEntries = Object.entries(data)
 const dataLength = Object.keys(data).length
@@ -18,22 +21,44 @@ const quizBox = questionContainer.childNodes[7]
 const quizQuestion = questionContainer.childNodes[5]
 const quizImage = document.getElementById('questionImg')
 // init variables
-let currentPage = 0
-let ansRight = 0
+let currentPage
+let ansRight
+
+submit.addEventListener("click", function() {
+            questionContainer.style.display = "none"
+            getRadioAnswer();
+            answerContainer.style.display = "inline"
+        })
+continueQ.addEventListener("click", function() {
+            while (quizBox.firstChild) {
+                    // Kinda lazy, am I properly disposing of the DOM elements (i.e properly removing it from memory) or would it be better to get more specific?
+                    quizBox.removeChild(quizBox.firstChild);
+                }
+                // Maybe currentPage should be a variable in progress
+                answerContainer.style.display = "none"
+                currentPage++
+                progress()
+                questionContainer.style.display = "inline"
+        })
 
 /* Checks the currentPage variable in comparison to dataLength => loops through currentPage's objects => passes objects to the makeResponse function and binds the submit button to getRadioAnswer => Renders title, radios and text for each respective array */
 
-function init() {
+function init(){
+// Maybe before you start the quiz, you want to initalize a start page? This is where you could do such a thing, but for now, it starts directly at the start of a quiz.
 
+currentPage = 0
+ansRight = 0
+progress()
+}
+
+function progress() {
     if (currentPage != dataLength) {
 
         for (let j = 0; j < dataEntries[currentPage][1].responses.length; j++) {
             makeResponse([j], dataEntries[currentPage][1].responses[j].response, dataEntries[currentPage][1].question)
             quizImage.src = dataEntries[currentPage][1].imageURL
+            console.log(currentPage)
         }
-        submit.addEventListener("click", function() {
-            getRadioAnswer();
-        })
     } else if (currentPage == dataLength) {
         console.log("Finished")
     }
@@ -61,7 +86,6 @@ function makeResponse(id, response, question) {
     inputCombo.appendChild(inputNode)
     inputCombo.appendChild(textNode)
     quizBox.appendChild(inputCombo)
-    console.log("Test")
 }
 
 
@@ -78,26 +102,13 @@ function getRadioAnswer() {
             
             if (radios[r].value == dataEntries[currentPage][1].answer) {
                 console.log("..and the answer is true!")
-                
+                answerResponse.innerHTML = dataEntries[currentPage][1].responses[radios[r].value].answerMessage
                 ansRight++
-                // Now there needs to be a confirm screen before we erase and render
-                while (quizBox.firstChild) {
-
-                    // Kinda lazy, am I properly disposing of the DOM elements (i.e removing it from memory) or would it be better to get more specific?
-                    quizBox.removeChild(quizBox.firstChild);
-                }
-                // Maybe currentPage should be a variable in init, and init should be renamed, so an actual init could be the point where everything is set up or reset
-                currentPage++
-                init()
             }
             else {
                 console.log("..and the answer is wrong!")
-                // confirm screen here
-                while (quizBox.firstChild) {
-                quizBox.removeChild(quizBox.firstChild);
-                }
-                currentPage++
-                init()
+                answerResponse.innerHTML = dataEntries[currentPage][1].responses[radios[r].value].answerMessage
+                // We don't count the incorrect answers here
             }
 
             //console.log(radios[r].type)
@@ -109,6 +120,5 @@ function getRadioAnswer() {
 function makeAnswer(id, ) {
 
 }
-
 
 init()
