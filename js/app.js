@@ -4,11 +4,19 @@ Knowing how loops work'll come in handy.*/
 
 // connect to data-old.json
 const data = dataBase
+// init variables
+let currentPage
+let ansRight
 // bind to DOM elements
 const coreApp = document.getElementById('app')
 const questionContainer = coreApp.childNodes[1]
+
 const answerContainer = coreApp.childNodes[3]
 const answerResponse = document.getElementById('ansResponse')
+const answerNumber = document.getElementById('answerNum')
+
+const finalContainer = coreApp.childNodes[5]
+
 const submit = document.getElementById('submitA')
 const continueQ = document.getElementById('continue')
 
@@ -20,12 +28,10 @@ const dataLength = Object.keys(data).length
 const quizBox = questionContainer.childNodes[7]
 const quizQuestion = questionContainer.childNodes[5]
 const quizImage = document.getElementById('questionImg')
-// init variables
-let currentPage
-let ansRight
+
 
 submit.addEventListener("click", function() {
-            questionContainer.style.display = "none"
+            //questionContainer.style.display = "none"
             getRadioAnswer();
             answerContainer.style.display = "inline"
         })
@@ -88,8 +94,6 @@ function makeResponse(id, response, question) {
     quizBox.appendChild(inputCombo)
 }
 
-
-
 function getRadioAnswer() {
 
     // ToDo: Get radio buttons directly from quizBox instead of running through the entire document
@@ -104,11 +108,13 @@ function getRadioAnswer() {
                 console.log("..and the answer is true!")
                 answerResponse.innerHTML = dataEntries[currentPage][1].responses[radios[r].value].answerMessage
                 ansRight++
+                answerNumber.innerHTML = ansRight
             }
             else {
                 console.log("..and the answer is wrong!")
                 answerResponse.innerHTML = dataEntries[currentPage][1].responses[radios[r].value].answerMessage
                 // We don't count the incorrect answers here
+                answerNumber.innerHTML = ansRight
             }
 
             //console.log(radios[r].type)
@@ -116,9 +122,5 @@ function getRadioAnswer() {
     }
 }
 
-// Should 
-function makeAnswer(id, ) {
-
-}
 
 init()
