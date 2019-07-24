@@ -9,9 +9,10 @@ const data = dataBase
 const dataEntries = Object.entries(data)
 const dataLength = Object.keys(data).length
 // These two constraints gets the DOM elements of where the responses are rendered, and where the question is rendered.
-// '5' is where the responses are, '3' is where the question is.
-const quizBox = coreApp.childNodes[5]
-const quizQuestion = coreApp.childNodes[3]
+// '7' is where the responses are, '5' is where the question is.
+const quizBox = coreApp.childNodes[7]
+const quizQuestion = coreApp.childNodes[5]
+const quizImage = document.getElementById('questionImg')
 let currentPage = 0
 
 
@@ -25,6 +26,7 @@ function init() {
             //console.log(dataEntries[currentPage][1].responses[j].response);
 
             makeResponse([j], dataEntries[currentPage][1].responses[j].response, dataEntries[currentPage][1].question)
+            quizImage.src = dataEntries[currentPage][1].imageURL
 
         }
         submit.addEventListener("click", function() {
@@ -57,6 +59,7 @@ function makeResponse(id, response, question) {
     inputCombo.appendChild(inputNode)
     inputCombo.appendChild(textNode)
     quizBox.appendChild(inputCombo)
+    console.log("Test")
 }
 
 
@@ -65,17 +68,21 @@ function getRadioAnswer() {
 
     // ToDo: Get radio buttons directly from quizBox instead of running through the entire document
     const radios = document.getElementsByName('Quiz')
-    
-    for (let r = 0; r < radios.length; r++){
+
+    for (let r = 0; r < radios.length; r++) {
         // If it finds a checked radio box, it should find if it's true in the database
         if (radios[r].checked) {
             console.log("Radio is checked....")
-            if (radios[r].value == dataEntries[currentPage][1].answer){
+            if (radios[r].value == dataEntries[currentPage][1].answer) {
                 console.log("..and the answer is true!")
 
+                // Now there needs to be a confirm screen before we erase and render
+
                 while (quizBox.firstChild) {
-    quizBox.removeChild(quizBox.firstChild);
-    }
+
+                    // Kinda lazy, am I properly disposing of the DOM elements (i.e removing it from memory) or would it be better to get more specific?
+                    quizBox.removeChild(quizBox.firstChild);
+                }
 
                 currentPage++
                 init()
@@ -87,7 +94,7 @@ function getRadioAnswer() {
 }
 
 // Should 
-function makeAnswer(id, ){
+function makeAnswer(id, ) {
 
 }
 
