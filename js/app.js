@@ -29,17 +29,17 @@ const quizBox = questionContainer.childNodes[7]
 const quizQuestion = questionContainer.childNodes[5]
 const quizImage = document.getElementById('questionImg')
 
-
+function cleanPage(){while (quizBox.firstChild){quizBox.removeChild(quizBox.firstChild);}
+// Kinda lazy, am I properly disposing of the DOM elements (i.e properly removing it from memory) or would it be better to get more specific?
+}
 submit.addEventListener("click", function() {
+            //Radames doesn't want the main page to disappear
             //questionContainer.style.display = "none"
             getRadioAnswer();
             answerContainer.style.display = "inline"
         })
 continueQ.addEventListener("click", function() {
-            while (quizBox.firstChild) {
-                    // Kinda lazy, am I properly disposing of the DOM elements (i.e properly removing it from memory) or would it be better to get more specific?
-                    quizBox.removeChild(quizBox.firstChild);
-                }
+                cleanPage()
                 // Maybe currentPage should be a variable in progress
                 answerContainer.style.display = "none"
                 currentPage++
@@ -116,8 +116,6 @@ function getRadioAnswer() {
                 // We don't count the incorrect answers here
                 answerNumber.innerHTML = ansRight
             }
-
-            //console.log(radios[r].type)
         }
     }
 }
