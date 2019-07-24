@@ -3,6 +3,7 @@ But if so, I'm writing comments regarding what it's doing to the dataSheet to ma
 Knowing how loops work'll come in handy.*/
 
 //init variables
+let ansRight = 0
 const coreApp = document.getElementById('app')
 const submit = document.getElementById('submitA')
 const data = dataBase
@@ -84,6 +85,16 @@ function getRadioAnswer() {
                     quizBox.removeChild(quizBox.firstChild);
                 }
 
+                // Maybe currentPage should be a variable in init, and init should be renamed, so an actual init could be the point where everything is set up or reset
+                currentPage++
+                init()
+            }
+            else {
+                console.log("..and the answer is wrong!")
+                // confirm screen here
+                while (quizBox.firstChild) {
+                quizBox.removeChild(quizBox.firstChild);
+                }
                 currentPage++
                 init()
             }
