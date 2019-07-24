@@ -10,6 +10,9 @@
 
 <body>
     <div id="app">
+
+
+      <div id="questionContainer">
       <div class="imgContainer">
         <img class="image" id="questionImg"/>
       </div>
@@ -19,15 +22,31 @@
         <form id="quizBox" class="">
             <br></form>
         <button id="submitA">Submit</button>
-    </div><br />
+      </div>
+
+      <div id="answerContainer">
+          <h1 id="ansResponse">Test</h1>
+
+          <button id="continue">Continue</button>
+      </div>
+
+    </div>
+
+
     <script src="js/data-old.json"></script>
     <script src="js/app.js"></script>
 
     <style type="text/css">
+
+      #answerContainer {
+
+
+      }
+
         .image {
           display: flex;
           max-width: 30%;
-          
+
           justify-content: center;
           margin: 0 auto;
         }
