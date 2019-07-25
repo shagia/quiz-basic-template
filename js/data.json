@@ -11,7 +11,7 @@ dataBase = [
     },
     {  
      "question":"How's your day?",
-     "imageURL":"https://picsum.photos/id/804/800/800", 
+     "imageURL":"https://yt3.ggpht.com/fL_t0sCIizeOxZ2dZMOSXVKjk-fTaGzJyFSP1W7tDiYjH7RMII54OBTqJZW6v_3v1mi6mzOpz-fdhhJK=s900-c-k-c0xffffffff-no-rj-mo", 
         "responses":[ 
             {"response":"It's been fine", "answerMessage":"I hope it gets better..."},
             {"response":"It's been real terrible", "answerMessage":"So sorry to hear that! Let's make it better.."},
@@ -23,22 +23,22 @@ dataBase = [
     },
     {  
      "question":"How about another question?",
-     "imageURL":"https://picsum.photos/id/804/800/800", 
+     "imageURL":"https://peopledotcom.files.wordpress.com/2018/04/zappa-the-cat-3.jpg", 
         "responses":[ 
-            {"response":"How about no", "answerMessage":"I hope it gets better..."},
-            {"response":"Why are you asking me so many questions?", "answerMessage":"So sorry to hear that! Let's make it better.."},
-            {"response":"I'm up for another!", "answerMessage":"Wonderful!"},
-            {"response":"...", "answerMessage":"Make something out of it"},
-            {"response":"Please quit", "answerMessage":"same"},
+            {"response":"How about no", "answerMessage":"Jeez, sorry"},
+            {"response":"Why are you asking me so many questions?", "answerMessage":"It's a quiz!"},
+            {"response":"I'm up for another!", "answerMessage":"Great, let's keep it going"},
+            {"response":"...", "answerMessage":"cmon"},
+            {"response":"Please quit", "answerMessage":"Why?!"},
         ],
         "answer":[2],
     },
     {  
      "question":"Hi",
-     "imageURL":"https://picsum.photos/id/804/800/800", 
+     "imageURL":"https://upload.wikimedia.org/wikipedia/commons/8/82/Oakland_Bay_Bridge_Western_Part.jpg", 
         "responses":[ 
-            {"response":"Bye", "answerMessage":"I hope it gets better..."},
-            {"response":"No", "answerMessage":"So sorry to hear that! Let's make it better.."},
+            {"response":"Bye", "answerMessage":"Oops"},
+            {"response":"No", "answerMessage":"Whatever!"},
         ],
         "answer":[0],
     },
