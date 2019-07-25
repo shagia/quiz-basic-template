@@ -93,7 +93,7 @@ function makeResponse(id, response, question) {
 
     inputCombo.className = "quizAnswer"
 
-    quizQuestion.innerHTML = question
+    quizQuestion.textContent = question
 
     // We then make a radio for each response and append them together.
     // inputNode (the radio) + textNode (the response text) = > inputCombo, a div element => quizBox, the core container
@@ -115,14 +115,14 @@ function getRadioAnswer() {
 
             if (radios[r].value == dataEntries[currentPage][1].answer) {
                 console.log("..and the answer is true!")
-                answerResponse.innerHTML = dataEntries[currentPage][1].responses[radios[r].value].answerMessage
+                answerResponse.textContent = dataEntries[currentPage][1].responses[radios[r].value].answerMessage
                 ansRight++
-                answerNumber.innerHTML = ansRight
+                answerNumber.textContent = ansRight
             } else {
                 console.log("..and the answer is wrong!")
-                answerResponse.innerHTML = dataEntries[currentPage][1].responses[radios[r].value].answerMessage
+                answerResponse.textContent = dataEntries[currentPage][1].responses[radios[r].value].answerMessage
                 // We don't count the incorrect answers here
-                answerNumber.innerHTML = ansRight
+                answerNumber.textContent = ansRight
             }
         }
     }
