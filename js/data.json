@@ -1,23 +1,46 @@
-dataBase = {
-    "null":{},
-    "setOne": {
-        "question":"What kind of quiz is this?",
-        "responses":[
-            {"id":1,"response":"A good quiz", "answerMsg":"Sounds good, then!"},
-            {"id":2,"response":"A bad quiz", "answerMsg":"Oh! That's disappointing :("},
-            {"id":3,"response":"A decent quiz", "answerMsg":"Sounds a little boring...."},
+dataBase = [
+    {  //This is a question array
+     "question":"What kind of quiz is this?",
+     "imageURL":"https://picsum.photos/id/804/800/800", // This is where the question image sits
+        "responses":[ // This is where your responses are
+            {"response":"A good quiz", "answerMessage":"Sounds good, then!"},
+            {"response":"A bad quiz", "answerMessage":"Oh! That's disappointing :("},
+            {"response":"A decent quiz", "answerMessage":"Sounds a little boring...."},
         ],
         "answer":[2],
     },
-    "setTwo": {
-        "question":"How much fun are you having?",
-        "responses":[
-            {"id":1,"response":"Not a lot of fun unfortunately"},
-            {"id":2,"response":"Sort of fun, I think"},
-            {"id":3,"response":"Pretty fun! I'm enjoying myself"},
-            {"id":4,"response":"Lot of fun! Very exciting"},
-            {"id":5,"response":"I am beyond ecstatic, I can't hold my bowels"},
+    {  //This is a question array
+     "question":"How's your day?",
+     "imageURL":"https://picsum.photos/id/804/800/800", // This is where the question image sits
+        "responses":[ // This is where your responses are
+            {"response":"It's been fine", "answerMessage":"I hope it gets better..."},
+            {"response":"It's been real terrible", "answerMessage":"So sorry to hear that! Let's make it better.."},
+            {"response":"It's great!", "answerMessage":"Wonderful!"},
+            {"response":"Not sure", "answerMessage":"Make something out of it"},
+            {"response":"Eugh", "answerMessage":"same"},
         ],
         "answer":[3],
     },
-}
+    {  //This is a question array
+     "question":"How about another question?",
+     "imageURL":"https://picsum.photos/id/804/800/800", // This is where the question image sits
+        "responses":[ // This is where your responses are
+            {"response":"How about no", "answerMessage":"I hope it gets better..."},
+            {"response":"Why are you asking me so many questions?", "answerMessage":"So sorry to hear that! Let's make it better.."},
+            {"response":"I'm up for another!", "answerMessage":"Wonderful!"},
+            {"response":"...", "answerMessage":"Make something out of it"},
+            {"response":"Please quit", "answerMessage":"same"},
+        ],
+        "answer":[2],
+    },
+    {  //This is a question array
+     "question":"Hi",
+     "imageURL":"https://picsum.photos/id/804/800/800", // This is where the question image sits
+        "responses":[ // This is where your responses are
+            {"response":"Bye", "answerMessage":"I hope it gets better..."},
+            {"response":"No", "answerMessage":"So sorry to hear that! Let's make it better.."},
+        ],
+        "answer":[0],
+    },
+
+]
