@@ -29,33 +29,36 @@ const quizBox = questionContainer.childNodes[7]
 const quizQuestion = questionContainer.childNodes[5]
 const quizImage = document.getElementById('questionImg')
 
-function cleanPage(){while (quizBox.firstChild){quizBox.removeChild(quizBox.firstChild);}
-// Kinda lazy, am I properly disposing of the DOM elements (i.e properly removing it from memory) or would it be better to get more specific?
+function cleanPage() {
+    while (quizBox.firstChild) { quizBox.removeChild(quizBox.firstChild); }
+    // Kinda lazy, am I properly disposing of the DOM elements (i.e properly removing it from memory) or would it be better to get more specific?
 }
+
 submit.addEventListener("click", function() {
-            //Radames doesn't want the main page to disappear
-            //questionContainer.style.display = "none"
-            getRadioAnswer();
-            answerContainer.style.display = "inline"
-        })
+    //Radames doesn't want the main page to disappear
+    //questionContainer.style.display = "none"
+    getRadioAnswer();
+    answerContainer.style.display = "inline"
+})
+
 continueQ.addEventListener("click", function() {
-                cleanPage()
-                // Maybe currentPage should be a variable in progress
-                answerContainer.style.display = "none"
-                currentPage++
-                progress()
-                questionContainer.style.display = "inline"
-        })
+    cleanPage()
+    // Maybe currentPage should be a variable in progress
+    answerContainer.style.display = "none"
+    currentPage++
+    progress()
+    questionContainer.style.display = "inline"
+})
 
 /* Checks the currentPage variable in comparison to dataLength => loops through currentPage's objects => passes objects to the makeResponse function and binds the submit button to getRadioAnswer => Renders title, radios and text for each respective array */
 
-function init(){
-// Maybe before you start the quiz, you want to initalize a start page? This is where you could do such a thing, but for now, it starts directly at the start of a quiz.
+function init() {
+    // Maybe before you start the quiz, you want to initalize a start page? This is where you could do such a thing, but for now, it starts directly at the start of a quiz.
 
-finalContainer.style.display = "none"
-currentPage = 0
-ansRight = 0
-progress()
+    finalContainer.style.display = "none"
+    currentPage = 0
+    ansRight = 0
+    progress()
 }
 
 function progress() {
@@ -71,7 +74,7 @@ function progress() {
         questionContainer.style.display = "none"
         finalContainer.style.display = "inline"
 
-        
+
 
     }
 
@@ -109,14 +112,13 @@ function getRadioAnswer() {
         // If it finds a checked radio box, it should find if it's true in the database
         if (radios[r].checked) {
             console.log("Radio is checked....")
-            
+
             if (radios[r].value == dataEntries[currentPage][1].answer) {
                 console.log("..and the answer is true!")
                 answerResponse.innerHTML = dataEntries[currentPage][1].responses[radios[r].value].answerMessage
                 ansRight++
                 answerNumber.innerHTML = ansRight
-            }
-            else {
+            } else {
                 console.log("..and the answer is wrong!")
                 answerResponse.innerHTML = dataEntries[currentPage][1].responses[radios[r].value].answerMessage
                 // We don't count the incorrect answers here
