@@ -52,21 +52,27 @@ continueQ.addEventListener("click", function() {
 function init(){
 // Maybe before you start the quiz, you want to initalize a start page? This is where you could do such a thing, but for now, it starts directly at the start of a quiz.
 
+finalContainer.style.display = "none"
 currentPage = 0
 ansRight = 0
 progress()
 }
 
 function progress() {
-    if (currentPage != dataLength) {
+    if (currentPage != dataLength) { // Moving up
 
         for (let j = 0; j < dataEntries[currentPage][1].responses.length; j++) {
             makeResponse([j], dataEntries[currentPage][1].responses[j].response, dataEntries[currentPage][1].question)
             quizImage.src = dataEntries[currentPage][1].imageURL
             console.log(currentPage)
         }
-    } else if (currentPage == dataLength) {
-        console.log("Finished")
+    } else if (currentPage == dataLength) { // dataLength is equal to currentPage
+        answerContainer.style.display = "none"
+        questionContainer.style.display = "none"
+        finalContainer.style.display = "inline"
+
+        
+
     }
 
 }
